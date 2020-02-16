@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CandidateSerializer
+from .serializers import CandidateSerializer, CandidateVoteSerializer
 from django.http import HttpResponse
 from .models import Candidate
 
@@ -18,8 +18,11 @@ def candidate_list(request):
         return Response(serializer.data)
 
     elif request.method == 'PATCH':
-        qs = Candidate.objects.filter(name=request.data['name']).first()  # Already unique so adding first() is okay
-        serializer = CandidateSerializer(qs, data=request.data, partial=True)
+        DATA = request.data
+        qs = Candidate.objects.filter(name=DATA['name']).first()  # Already unique so adding first() is okay
+        # TODO try except should be added
+        qs.vote_count = qs.vote_count + 1
+        serializer = CandidateVoteSerializer(qs, data=DATA, partial=True)
         if serializer.is_valid() and qs:
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

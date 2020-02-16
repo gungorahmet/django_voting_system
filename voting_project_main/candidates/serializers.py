@@ -9,3 +9,8 @@ class CandidateSerializer(serializers.ModelSerializer):
             'name',
             'vote_count'
         )
+
+class CandidateVoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Candidate
+        fields = ['name']
