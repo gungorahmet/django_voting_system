@@ -10,7 +10,7 @@ from .models import Candidate
 @api_view(['GET', 'PATCH'])
 def candidate_list(request):
     """
-    List all code candidates, or create a new snippet.
+    List all code candidates
     """
     if request.method == 'GET':
         candidates = Candidate.objects.all()
