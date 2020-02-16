@@ -4,7 +4,7 @@ Note: Needs MongoDB
 
 cd voting_project <br>
 python -m venv myenv <br>
-myvenv\Scripts\activate <br>
+./myvenv/Scripts/activate <br>
 python -m pip install --upgrade pip <br>
 pip install -r requirements.txt <br>
  <br>
