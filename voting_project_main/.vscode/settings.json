@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "Others\\myenv\\Scripts\\python.exe",
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#9bff9b",
+        "editor.selectionHighlightBackground": "#9bff9b"
+    },
+    
+}
