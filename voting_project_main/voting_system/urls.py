@@ -20,6 +20,7 @@ from candidates import views
 
 
 urlpatterns = [
+    path('', views.candidate_list),
     path('admin/', admin.site.urls),
     path('odm', views.home, name="home"),
     path('candidates/', views.candidate_list),
